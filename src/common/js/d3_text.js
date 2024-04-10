@@ -24,22 +24,28 @@ module.exports = function(map) {
                 .data(text, key);
 
 
-            textUpd.enter()
-                .append('text')
-                .style('text-anchor', 'middle')
-                .style('color', '#444')
-                .style('font-family', "'Source Sans Pro', sans-serif")
-                .style('font-size', "8pt")
-                .attr('x', function(d) {
-                    return proj.latLngToLayerPoint(d.coordinates).x;
-                })
-                .attr('y', function(d) {
-                    return proj.latLngToLayerPoint(d.coordinates).y;
-                })
-                .text(function(d) {
-                    return d.cname;
-                })
-                .style('pointer-events', 'none');
+                textUpd.enter()
+                    .append('text')
+                    .style('text-anchor', 'middle')
+                    .style('color', '#000')
+                    .style('font-family', "'Source Sans Pro', sans-serif")
+                    .style('font-size', "8pt")
+                    .style('font-weight', "bold")
+                    .style('text-transform', "uppercase")
+                    .style('text-shadow', "1px 1px 0 #fff")
+                    .style('text-shadow', "-1px 1px 0 #fff")
+                    .style('text-shadow', "1px -1px 0 #fff")
+                    .style('text-shadow', "-1px -1px 0 #fff")
+                    .attr('x', function(d) {
+                        return proj.latLngToLayerPoint(d.coordinates).x;
+                    })
+                    .attr('y', function(d) {
+                        return proj.latLngToLayerPoint(d.coordinates).y;
+                    })
+                    .text(function(d) {
+                        return d.cname;
+                    })
+                    .style('pointer-events', 'none');
 
 
             var insertLinebreaks = function(d) {

@@ -43,8 +43,9 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
                 "<option value='85 to 89'>85 to 89</option>" +
                 "<option value='90 to 94'>90 to 94</option>" +
                 "<option value='95 and over'>95 and over</option>" +
-            "</select>";
-            //"<br /><button name='display' id='display' align='center'>Show Data</button>";
+            "</select><br />" +
+            
+            "<p><a href=https://storage.googleapis.com/co-publicdata/sya-county.csv>Download the age data</a></p>";
             
         div.padding = "20px";
         return div;
