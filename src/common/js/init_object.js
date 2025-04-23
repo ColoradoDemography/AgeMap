@@ -35,12 +35,12 @@ module.exports = function() {
                async: false,
 
                });
-                console.log("https://gis.dola.colorado.gov/lookups/components?county="+fips_str+"&year="+year);
+                
               return data.responseJSON;
 
             }
             
-            console.log("Passed");
+            
 
 
 
@@ -58,7 +58,7 @@ module.exports = function() {
                 var low_year_value = 5000;
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].year < low_year_value) {
-                        low_year_value = data[i].year;
+                        low_year_value = parseInt(data[i].year);
                     }
                 }
                 return low_year_value;
@@ -69,7 +69,7 @@ module.exports = function() {
                 var high_year_value = 0;
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].year > high_year_value) {
-                        high_year_value = data[i].year;
+                        high_year_value = parseInt(data[i].year);
                     }
                 }
                 return high_year_value;
@@ -88,7 +88,7 @@ module.exports = function() {
             this.retrieveCountyPop = function(fips, year) {
                 var agepop = 0;
                 for (let i = 0; i < data.length; i++) {
-                        if (data[i].countyfips === fips && data[i].year === year) {
+                        if (parseInt(data[i].countyfips) === fips && parseInt(data[i].year) === year) {
                             agepop = agepop + parseInt(data[i].totalpopulation);
                         }
                     }
@@ -101,7 +101,7 @@ module.exports = function() {
                 var allpop = 0;
                 for (let j = 0; j < jsonData.length; j++) {
 
-                    if (parseInt(jsonData[j].countyfips) === fips && parseInt(jsonData[j].year) === year) {
+                    if (jsonData[j].countyfips === fips && jsonData[j].year === year) {
 
                     allpop = jsonData[j].estimate;
                         console.log(allpop);
